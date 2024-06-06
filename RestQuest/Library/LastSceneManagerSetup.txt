@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/StarterAssets/ThirdPersonController/Scenes/Playground.unity
+- path: Assets/StarterAssets/ThirdPersonController/Scenes/Playground_Pascal.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
