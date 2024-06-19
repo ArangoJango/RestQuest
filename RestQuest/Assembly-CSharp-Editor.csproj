@@ -431,8 +431,28 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="GoogleCalendarUnity">
+      <HintPath>Assets\Core\GoogleCalendarUnity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3">
+      <HintPath>Assets\Core\Google.Apis.Calendar.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>Assets\Core\Google.Apis.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>Assets\Core\Google.Apis.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth">
+      <HintPath>Assets\Core\Google.Apis.Auth.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="log4netPlastic">
@@ -443,8 +463,24 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Core\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices">
+      <HintPath>Assets\Core\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices">
+      <HintPath>Assets\Core\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NuGetForUnity.PluginAPI">
+      <HintPath>Library\PackageCache\com.github-glitchenzo.nugetforunity@a0bb556608\Editor\PluginAPI\NuGetForUnity.PluginAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
@@ -981,6 +1017,10 @@
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NuGetForUnity">
+      <HintPath>Library\ScriptAssemblies\NuGetForUnity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">

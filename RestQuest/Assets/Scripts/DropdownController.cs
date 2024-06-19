@@ -41,6 +41,12 @@ public class DropdownController : MonoBehaviour
                 HideDropdown();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        {
+            ToggleSettingsObject();
+        }
+
     }
 
     void ShowDropdown()
@@ -54,4 +60,13 @@ public class DropdownController : MonoBehaviour
         dropdownPanel.SetActive(false);
         isDropdownVisible = false;
     }
+
+    void ToggleSettingsObject()
+    {
+        if (dropdownPanel != null)
+        {
+            dropdownPanel.SetActive(!dropdownPanel.activeSelf);
+        }
+    }
 }
+

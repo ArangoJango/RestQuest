@@ -390,6 +390,7 @@
 -analyzer:"F:/Unity/Unity 2022.3.27f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"F:/Unity/Unity 2022.3.27f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/DropdownController.cs"
+"Assets/Scripts/GetLocalTime.cs"
 "Assets/Scripts/KeysPerSecondScript.cs"
 "Assets/Scripts/LocationProvider.cs"
 "Assets/Scripts/Testing.cs"
