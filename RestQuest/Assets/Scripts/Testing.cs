@@ -5,7 +5,7 @@ using GoogleCalendarUnity;
 
 public class Testing : MonoBehaviour
 {
-    public GameObject CalendarText; 
+    public GameObject CalendarText, CalenderUI; 
 
     public void OpenPanel()
     {
@@ -23,9 +23,22 @@ public class Testing : MonoBehaviour
     
     public Calendar calendar = new Calendar();
     
-    private void Update()
+    /*private void Update()
+    {
+        calendar.Main();
+    }*/
+
+    private void Start()
     {
         calendar.Main();
     }
 
+    public void UpdateCalendar()
+    {
+        calendar.Main();
+    }
+    public void CloseCalendar()
+    {
+        CalenderUI.SetActive(false);
+    }
 }
