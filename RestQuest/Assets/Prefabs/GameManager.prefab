@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6749574934730509188}
   - component: {fileID: 5830635463639019666}
   - component: {fileID: 8045149979117164828}
+  - component: {fileID: 6392877666710554265}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -60,3 +61,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdownPanel: {fileID: 0}
   hoverHeight: 50
+--- !u!114 &6392877666710554265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923157765657828099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71384c2df8c91384ba261b55e045247c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOutput: {fileID: 0}
