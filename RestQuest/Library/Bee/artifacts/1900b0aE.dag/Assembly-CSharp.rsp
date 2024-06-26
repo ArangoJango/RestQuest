@@ -393,6 +393,7 @@
 "Assets/Scripts/GetLocalTime.cs"
 "Assets/Scripts/KeysPerSecondScript.cs"
 "Assets/Scripts/LocationProvider.cs"
+"Assets/Scripts/NotificationSystem.cs"
 "Assets/Scripts/show_log.cs"
 "Assets/Scripts/Testing.cs"
 "Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs"
