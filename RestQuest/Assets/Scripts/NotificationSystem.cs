@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 
 public class NotificationSystem : MonoBehaviour
 {
+    [SerializeField] public static string TimefromAppointment;
     [SerializeField] private TMP_Text calendarText;
     [SerializeField] private GameObject calendarUI;
     [SerializeField] private GameObject drinkReminderUI;
@@ -88,6 +89,7 @@ public class NotificationSystem : MonoBehaviour
 
             eventSummary += $"Event Summary: {summary}\n";
             eventSummary += $"Date and Time: {dateTimeString}\n\n";
+            TimefromAppointment = dateTimeString;
         }
 
         calendarText.text = eventSummary;
