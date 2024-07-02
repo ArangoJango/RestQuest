@@ -39,7 +39,7 @@ public class KeysPerSecondScript : MonoBehaviour
             // Display the keys per second on the UI
             if (keysPerSecondText != null)
             {
-                keysPerSecondText.text = "KPS: " + keysPerSecond.ToString("F2");
+                keysPerSecondText.text = keysPerSecond.ToString("F2");
                 keysPerSecondText.color = Color.Lerp(Color.green, Color.red, Mathf.Clamp01(keysPerSecond / maxKPS));
             }
 
