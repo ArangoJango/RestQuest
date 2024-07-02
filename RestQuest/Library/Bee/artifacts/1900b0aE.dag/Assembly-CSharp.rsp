@@ -390,7 +390,6 @@
 "Assets/Scripts/LocationProvider.cs"
 "Assets/Scripts/NotificationManager.cs"
 "Assets/Scripts/NotificationSystem.cs"
-"Assets/Scripts/NotifOld.cs"
 "Assets/Scripts/show_log.cs"
 "Assets/Scripts/Testing.cs"
 "Assets/Scripts/UserSettings.cs"

@@ -66,7 +66,6 @@
     <Compile Include="Assets\Scripts\KeysPerSecondScript.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
-    <Compile Include="Assets\Scripts\NotifOld.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
     <Compile Include="Assets\Scripts\NotificationSystem.cs" />
     <Compile Include="Assets\Scripts\UserSettings.cs" />

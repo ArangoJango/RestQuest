@@ -6,53 +6,53 @@ using TMPro;
 
 public class NotificationManager : MonoBehaviour
 {
-   public static NotificationManager Instance
+    void Start()
     {
-        get
-        {
-            if(instance != null)
-            {
-                return instance;
-            }
-
-            instance = FindObjectOfType<NotificationManager>();
-
-            if (instance != null)
-            {
-                return instance;
-            }
-
-            CreateNewInstance();
-
-            return instance;
-        }
+        //Empty Queue 
+        // Get Todays-Apointments
+        // Add all of them to the queue
     }
 
-    private static NotificationManager CreateNewInstance()
-    {
-        NotificationManager notificationManagerPrefab = Resources.Load<NotificationManager>("NotificationManager"); 
-        instance = Instantiate(notificationManagerPrefab);
+    public TMP_Text MessageTitle;
+    public TMP_Text MessageText;
+    public TMP_Text SnoozedMessageTitle;
+    public TMP_Text SnoozedMessageText;
 
-        return instance;
+    public GameObject NotificationWindow;
+    public GameObject SnoozeWindow;
+
+    private string Appointment = "Appointment";
+    private string Break = "Take a break";
+
+    //private Queue<string> popupQue;
+    //private Coroutine queueChecker;
+
+    private float Playtime;
+    public float BreakInterval;
+
+    //Playtime hochzählen
+
+    /* public void AddToQueue(string text)
+    {
+        popupQue.Enqueue(text);
+        //unfinished
     }
 
-    private static NotificationManager instance;
-
-    private void Awake()
+    private void ShowBreakPopup(string text)
     {
-        if (!(Instance = !this))
-        {
-            return;
-        }
-        Destroy(gameObject);
+        BreakWindow.SetActive(true);
+        BreakMessage.text = text;
+        //unfinished
     }
 
-    [SerializeField] private TMP_Text notificationText;
-    [SerializeField] private float showTime;
-
-    public void SetNewNotification()
+    private void ShowAppointmentMessage(string text)
     {
+        AppointmentWindow.SetActive(true);
+        AppointmentMessage.text = text;
+        //unfinished
+    } */
 
-    }
+
+
 
 }
