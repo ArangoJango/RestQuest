@@ -43,5 +43,7 @@ public class NotifOld : MonoBehaviour
         // Add all of them to the queue
     }
 
+}
+
     // Update is called once per frame
 

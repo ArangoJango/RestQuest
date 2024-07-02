@@ -40,15 +40,19 @@ public class NotificationManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance =! this)
+        if (!(Instance = !this))
         {
-            Destroy(gameObject);
+            return;
         }
+        Destroy(gameObject);
     }
 
     [SerializeField] private TMP_Text notificationText;
     [SerializeField] private float showTime;
 
     public void SetNewNotification()
+    {
+
+    }
 
 }
