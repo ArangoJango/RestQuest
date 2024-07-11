@@ -113,7 +113,7 @@ public class NotificationSystem : MonoBehaviour
         {
             DateTime eventTime = DateTime.Parse(eventItem.Start.DateTimeRaw);
 
-            if (eventTime == currentTime)
+            if (eventTime == currentTime) // >= wäre eventuell sinnvoller
             {
                 // Activate UI element for reminder
                 calendarUI.SetActive(true);

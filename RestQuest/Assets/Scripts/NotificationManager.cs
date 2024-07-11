@@ -10,13 +10,9 @@ public class NotificationManager : MonoBehaviour
     {
         Snoozed = false;
         Playtime = 0f;
-        BreakDelay = 30f;         // sollte theoretisch anpassbar sein
-        BreakIntervalSeconds = BreakInterval * 60;
-        AppointmentAheadSeconds = AppointmentAhead * 60;
-        //StartCoroutine(Playtime());
-        //Empty Queue 
-        // Get Todays-Apointments
-        // Add all of them to the queue
+        BreakDelay = 300f;         // sollte theoretisch anpassbar sein, aber da wir kein User-Optionsmenü haben, habe ich es fix gemacht
+        BreakIntervalSeconds = BreakInterval * 60; // Interval in which break times show in Seconds
+        AppointmentAheadSeconds = AppointmentAhead * 60; // Premonition-time for Appointments in Seconds
 
     }
 
@@ -25,20 +21,21 @@ public class NotificationManager : MonoBehaviour
     // public TMP_Text SnoozedMessageTitle;
     public TMP_Text SnoozedMessageText;
 
+    private TMP_Text KPS_UI_Element;
+
     public GameObject NotificationWindow;
     public GameObject SnoozeWindow;
 
     private string Appointment = "Appointment";
     private string Break = "Take a break";
 
-    private bool Snoozed;
-    private bool AppointNext;
+    private bool Snoozed; // Tracks if the next upcoming reminder shows up for the first time or not
+    private bool AppointNext; // True if an appointment is the next reminder, false if the next reminder is about taking a break
 
     //private Queue<string> popupQue;
-    //private Coroutine queueChecker;
 
     private float Playtime;
-    [Range(5, 60)] public int BreakInterval;
+    [Range(2, 60)] public int BreakInterval;
     [Range(5, 60)] public int AppointmentAhead;
     private float BreakIntervalSeconds;
     private float AppointmentAheadSeconds;
@@ -46,44 +43,88 @@ public class NotificationManager : MonoBehaviour
     private float BreakTime;
     private float AppointmentClose;
 
+
+    // Coroutine that checks which Notification comes next
+
+    /*
+    private void QueueChecker
+    {
+        check: next in queue appointment or break (what happens sooner)
+        
+
+        if break
+            while (playtime <= (BreakInterval*0,9))
+                return
+            while (platime > (BreakInterval*0,9)
+                if(playtime <= (BreakInterval*1.3)
+                    check if cutscene
+                    while cutsczene = true 
+                        return
+                    else
+                        check if kps low
+                        while kps low
+                            ShowBreakNotif()
+                else
+                    check if kps low
+                    while kps low
+                        ShowBreakNotif()
+            
+
+        if appointment
+             while (playtime <= (AppointmentAhead*0,7)
+                return
+             while (platime > (AppointmentAhead*0,7)
+                if(playtime <= (AppointmentAhead*0,1)
+                    check if cutscene
+                    while cutsczene = true 
+                        return
+                    else
+                        check if kps low
+                        while kps low
+                            ShowAppointNotif()
+                else
+                   ShowAppointNotif()
+
+    }
+  
+     Appointment Notifications sollen beim letztmöglichen sinnvollen Zeitpunkt immer gezeigt werden, bei Pausenremindern wird noch nach Spieleraktivität geprüft.
+
+    Was komplett fehlt ist eine Funktion die Calendar Events in ne Queue zu packen, sodass die Funktion vergleichen kann, ob das erste Item in der Queue, oder die Pause zuerst passiert.
+     */
+
+    // BreakNotification
     private void ShowBreakNotif()
     {
         if (Snoozed == false)
         {
+            // Kleines Fenster
             NotificationWindow.SetActive(true);
             MessageTitle.text = Break;
             StartCoroutine(BreakTimeCount());
-            // MessageText.text = variable mit der info;
+            MessageText.text = "Remember to drink some water.";// Besser wäre variable und Message-Varianten, habe die aber wieder rausgenommen.
 
         }
         else
         {
+            // Großes Fenster
             SnoozeWindow.SetActive(true);
             // SnoozedMessageTitle.text = Break;
             StartCoroutine(BreakTimeCount());
-            // SnoozedMessageText.text = variable mit der info;
+            SnoozedMessageText.text = "Remember to drink some water.";
         }
     }
 
+
+    // Appointment Notification
     private void ShowAppointmentNotif()
     {
-        if (Snoozed == false)
-        {
-            NotificationWindow.SetActive(true);
-            MessageTitle.text = Appointment;
-            StartCoroutine(BreakTimeCount());
-            // MessageText.text = variable mit der info;
-
-        }
-        else
-        {
-            SnoozeWindow.SetActive(true);
-            // SnoozedMessageTitle.text = Appointment;
-            StartCoroutine(BreakTimeCount());
-            // SnoozedMessageText.text = variable mit der info;
-        }
+        // private int TimeLeft = (AppointmentTime - CurrentTime) in Minutes
+         SnoozeWindow.SetActive(true); // Appointments always have the big window
+         StartCoroutine(BreakTimeCount());
+            // MessageText.text = "Your Appointment starts in" + TimeLeft + "Minutes";
     }
 
+    // Function for Snooze Button
     public void Snooze()
     {
         Snoozed = true;
@@ -101,6 +142,8 @@ public class NotificationManager : MonoBehaviour
         BreakTime = 0f;
     }
 
+
+    // Function Got the message and understood.
     public void Acknowledged()
     {
         Snoozed = false;
@@ -113,8 +156,10 @@ public class NotificationManager : MonoBehaviour
     }
 
 
+    // Automatic Break Recognition if Player away
     private IEnumerator BreakTimeCount()
     {
+
         while (BreakTime <= 300)
         {
             BreakTime += 1;
@@ -123,6 +168,7 @@ public class NotificationManager : MonoBehaviour
 
         if (BreakTime >= 30)
         {
+            
             /* for (kps <= 0)
              * {
              * yield return new WaitForSeconds(1);
@@ -132,6 +178,7 @@ public class NotificationManager : MonoBehaviour
 
     }
 
+    // Delay Message for X Seconds
     private IEnumerator DelayMessage()
     {
         while (BreakDelay >= 0)
@@ -144,6 +191,8 @@ public class NotificationManager : MonoBehaviour
         StopCoroutine(DelayMessage());
     }
 
+
+    // Delay Appointment Notification for X Seconds
     private IEnumerator DelayAppointment()
     {
         while (BreakDelay >= 0)
@@ -152,16 +201,17 @@ public class NotificationManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         ShowAppointmentNotif();
-        BreakDelay = 300f;
+        BreakDelay = 300f; 
         StopCoroutine(DelayAppointment());
     }
-    //Playtime hochzählen
 
-    /* public void AddToQueue(string text)
+    private void Update()
     {
-        popupQue.Enqueue(text);
-        //unfinished
-    } */
+        Playtime += Time.deltaTime; //Active Playtime
+
+        //QueueChecker(); 
+    }
+
 }
 
 
