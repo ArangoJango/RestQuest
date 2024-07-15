@@ -80,7 +80,9 @@ public class Redo_Notification_Script : MonoBehaviour
     public void AddBreakEvent()
     {
         // Add a break event to the queue immediately
-        eventQueue.Enqueue(new CalendarEvent { EventTime = DateTime.Now, EventName = Break });
+        Playtime += BreakIntervalSeconds; // Enable Correct Notification Window
+        // eventQueue.Enqueue(new CalendarEvent { EventTime = DateTime.Now, EventName = Break });
+
     }
 
     // Hier der QueueChecker
@@ -135,7 +137,8 @@ public class Redo_Notification_Script : MonoBehaviour
     {
         SnoozeWindow.SetActive(true);
         StartCoroutine(BreakTimeCount());
-        SnoozedMessageText.text = $"Your {calendarEvent.EventName} starts soon.";
+        string theTime = calendarEvent.EventTime.ToString("HH:mm");
+        SnoozedMessageText.text = $"{calendarEvent.EventName} starts at {theTime}.";
     }
 
     public void Snooze()
